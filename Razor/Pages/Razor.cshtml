@@ -1,0 +1,36 @@
+﻿@page
+@model MyApp.Namespace.razorModel
+@{ /*Title*/
+    ViewData["Title"] = "Razor";
+    /*Svenska*/
+    var culture = new System.Globalization.CultureInfo("sv-SE");
+    /*Hämtar dagens veckodag*/
+    var weekDay = DateTime.Now.DayOfWeek;
+    /*måndag*/
+    var monday = DayOfWeek.Monday;
+    /*Datum och tid just nu*/
+    var dateNow = DateTime.Now;
+    /*Array för kurser*/
+    string[] courses = {"DT057G, Webbutveckling I", "DT084G, Introduktion till programmering i JavaScript", "DT068G, Webbanvändbarhet", "DT200G, Grafisk teknik för webb", "DT093G, Webbutveckling II", "DT003G, Databaser", "DT173G, Webbutveckling III", "DT173G, Webbutveckling för CMS", "DT193G, Fullstack-utveckling med ramverk", "IK060G, Projektledning", "DT071G, Programmering i C#.NET", "DT162G, JavaScriptbaserad webbutveckling", "DT191G, Webbutveckling med .NET", "IG021G, Affärsplaner och kommersialisering" };
+}
+<!-- HTML-innehåll, Razorsyntax skriver ut datum/klockslag, om det är måndag och kurser jag läst-->
+<h1>Razor</h1>
+<article>
+<h2>Information</h2>
+<p><strong>Datum/klockslag:</strong> @dateNow</p>
+
+@if(weekDay == monday){
+    <p>Idag är det måndag!</p>
+} else{
+    <p>Idag är det inte måndag!</p>
+}
+</article>
+<article>
+    <h3>Kurser jag har läst</h3>
+    <ul class="courses">
+    @foreach(var course in courses){
+        <li>@course</li>
+    }
+        
+    </ul>
+</article>

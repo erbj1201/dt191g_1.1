@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Moment 1.1</title>
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Razor.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <header>
+        <div class="header-container">
+         <a class="logo" asp-area="" asp-page="/Index">Moment 1.1</a>
+         <div class="date-container"> <!-- Hämtar dagens datum dynamiskt -->
+         <p class="date">Dagens datum är: @DateTime.Now.ToString(string.Format("yyyy-MM-dd"))</p>
+         </div>
+         </div>
+    </header>
+     <!-- container huvudinnehåll & nav -->
+    <div class="container">
+        <nav>
+                    <ul>
+                        <li>
+                            <a class="navlink" asp-area="" asp-page="/Index">Hem</a>
+                        </li>
+                        <li>
+                            <a class="navlink" asp-area="" asp-page="/Razor">Razor</a>
+                        </li>
+                         <li>
+                            <a class="navlink" asp-area="" asp-page="/About">Om mig</a>
+                        </li>
+                    </ul>
+        </nav>
+       
+    <div class="content">
+        <main role="main">
+            @RenderBody()
+        </main>
+    </div>
+</div>
+    <footer>
+        <div class="footer-container">
+           <p>&copy; Av Erika Vestin - Kontakta mig via mejl <a href="erbj1201@student.miun.se">  erbj1201@student.miun.se</a></p> 
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
